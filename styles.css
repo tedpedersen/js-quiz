@@ -27,3 +27,10 @@ main{
 .hide{
     display: none;
 }
+/* the timer breaks to next line and does not collide with the nav link in mobile view */
+a.nav-link{
+    margin-right: 20px;
+}
+h4{
+    margin-top: 2%;
+}
