@@ -3,35 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap for basic scafolding -->
+    <meta name="author" content="Ted Pedersen">
+    <!-- bootstrap for basic scafolding/responsivenss -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- google font -->
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <!-- custom styles -->
     <link href ="styles.css" rel="stylesheet" />
     
     <title>JavaScript Quiz</title>
 </head>
 <body>
+<!-- navigation with brand, hi score and timer -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">JS QUIZ</a>
+    <img src="img/js-icon.svg" width="30" height="30" alt="" loading="lazy">
+    <a class="navbar-brand" href="#">QUIZ</a>
+    
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="#">See High Scores <span class="sr-only">(current)</span></a>
-        </li>
+            <li class="nav-item">
+                <a class="nav-link" id="qHighScore" href="#">See High Scores <span class="sr-only">(current)</span></a>
+            </li>
         </ul>
-        <span class="navbar-text">
-        <b>TIME LEFT: <span id="qTime"></span>
+        <span class="navbar-text hide" id="qTimeContainer">
+            <b>TIME LEFT: <span id="qTime"></span>
         </span>
     </nav>
-    <main class="container">
-        <section class="row">
+    <main class="container" id="qContainer">
+        <!-- intro -->
+        <section class="row" id="qIntro">
             <div class="col-sm text-center">
+                <img src="img/js-icon.svg" width="100" height="100" alt="" loading="lazy">
               <h1>JavaScript Coding Quiz</h1>
-              <p>Answer the questions</p>  
+              <p>Try to answer the following code-related questions within the time limit.</p>
+              <p>Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</p>
+              <button type="button" class="btn btn-primary" id="qStart">Start Quiz</button>  
             </div>
         </section>
-    </main>
-    
+        <!-- questions are hidden until user starts quiz -->
+        <section class="row hide" id="qQuestionsContainer">
+            <div class="col-sm text-center">
+                <h1>Question here</h1>
+                <div class="btn-group-vertical" id="qQuestions">
+                    <button type="button" class="btn btn-primary" id="q1">1</button>  
+                    <button type="button" class="btn btn-primary" id="q2">2</button>  
+                    <button type="button" class="btn btn-primary" id="q3">3</button>  
+                    <button type="button" class="btn btn-primary" id="q4">4</button>  
+                </div>
+            </div>
+        </section>
 
+    </main>
     <script src="script.js"></script>
 </body>
 </html>

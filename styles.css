@@ -19,5 +19,11 @@ body {
 	}
 }
 main{
-    padding-top: 15%
+    padding-top: 5%
+}
+.navbar-light .navbar-brand{
+    color: #3765AF;
+}
+.hide{
+    display: none;
 }
