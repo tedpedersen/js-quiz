@@ -36,17 +36,18 @@
               <h1>JavaScript Coding Quiz</h1>
               <p>Try to answer the following code-related questions within the time limit.</p>
               <p>Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</p>
-              <button type="button" class="btn btn-primary" id="qStart">Start Quiz</button>  
+              <a class="btn btn-primary" id="qStart">Start Quiz</a>  
             </div>
         </section>
         <!-- questions are hidden until user starts quiz -->
         <section class="row">
-            <div class="col-sm text-center" id="qQuestionsContainer">
+            <dic class="col-sm text-center">
+                <div id="qQuestionsContainer"></div>
+                <div class="btn-group-vertical" id="qAnswersContainer"></div>
               
                 <h4 id="qResult"></h4>
             </div>
         </section>
-
     </main>
     <script src="script.js"></script>
 </body>
