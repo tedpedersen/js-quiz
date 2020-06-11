@@ -41,11 +41,24 @@
         </section>
         <!-- questions are hidden until user starts quiz -->
         <section class="row">
-            <dic class="col-sm text-center">
+            <div class="col-sm text-center">
                 <div id="qQuestionsContainer"></div>
                 <div class="btn-group-vertical" id="qAnswersContainer"></div>
               
                 <h4 id="qResult"></h4>
+            </div>
+        </section>
+        <!-- form for scoring -->
+        <section class="row hidden" id="formContainer">
+            <div class="col-sm text-center">
+            <h1>Your Score is <span id="scoreContainer"></span><h1>
+            <form class="form">
+                <div class="form-group">
+                  <label for="username" class="sr-only">Please enter initails:</label>
+                  <input type="password" class="form-control" id="username" placeholder="Enter Your Initails">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Sumbit</button>
+              </form>
             </div>
         </section>
     </main>

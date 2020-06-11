@@ -6,6 +6,8 @@ var quizQustionsContainer = document.getElementById("qQuestionsContainer");
 var quizAnswersContainer = document.getElementById("qAnswersContainer");
 var qResultContainer = document.getElementById("qResult");
 var qContainer = document.getElementById("qContainer");
+var formContainer = document.getElementById("formContainer");
+var scoreContainer = document.getElementById("scoreContainer");
 var timeleft = 100;
 //start the quiz 
 document.getElementById("qStart").addEventListener("click", function startQuiz(){
@@ -290,12 +292,15 @@ function getAnswer4() { qContainer.addEventListener('click', (event) => {
         console.log(myValue);
         if (myValue === "correct"){
             qResultContainer.textContent = "CORRECT";
+            qTimeContainer.classList.add("hide");
             scoreCorrect();
+            setTimeout(() => {  captureUser(); }, 2000);
         }
         else{
-            qResultContainer.textContent = "WRONG";
             timeleft = timeleft - 10;
             scoreWrong();
+            captureUser();
+            setTimeout(() => {  captureUser(); }, 2000);
         }
       }
   })
@@ -304,10 +309,21 @@ function getAnswer4() { qContainer.addEventListener('click', (event) => {
 function scoreCorrect() {
     userScore + 25;
     console.log(userScore);
+    scoreContainer.textContent = userScore;
 }
 function scoreWrong() {
     console.log(userScore);
-  }
+    scoreContainer.textContent = userScore;
+}
+
+function captureUser(){
+    qTimeContainer.classList.add("hide");
+    quizQustionsContainer.classList.add("hide");
+    clearQuestion();
+    //show score and form
+    formContainer.classList.remove("hidden");
+
+}
 
   
 
