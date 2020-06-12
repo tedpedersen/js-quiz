@@ -41,6 +41,11 @@ p{
     font-size: 20px;
     margin-bottom: .3rem;
 }
+/*turn off the click event for logo*/
+a.navbar-brand{
+    cursor: none;
+    pointer-events: none;
+}
 #qStart{
     margin-top: 20px;
 }

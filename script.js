@@ -347,11 +347,11 @@ document.getElementById("nameBut").addEventListener("click", function final(){
     localStorage.setItem('user-score', userScore);
     }
 });
-//retake the quiz. todo: save hi score in local storage
+//retake the quiz
 document.getElementById("qRetake").addEventListener("click", function reTakeit(){
     window.location.reload();
 });
-//if local storage, show the 
+//if local storage, show the high scores and have button say go back
 document.getElementById("qHighScore").addEventListener("click", function qHighScoreLink(){
     if("user-name" in localStorage){
         retakeBut.textContent = "Go Back"; 
