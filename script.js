@@ -200,7 +200,7 @@ function getAnswer1() { qContainer.addEventListener('click', (event) => {
             //give them points
             userScore = userScore + 25;
             // console.log(userScore);
-            setTimeout(() => { buildQuestion2(); }, 2000);
+            setTimeout(() => { buildQuestion2(); }, 500);
         }
         else{
             qResultContainer.textContent = "WRONG";
@@ -208,7 +208,7 @@ function getAnswer1() { qContainer.addEventListener('click', (event) => {
             //reduce timer if wrong
             timeleft = timeleft - 10;
             //wait 2 secs until next questions
-            setTimeout(() => {  buildQuestion2(); }, 2000);
+            setTimeout(() => {  buildQuestion2(); }, 500);
 
         }
       }
@@ -235,12 +235,12 @@ function getAnswer2() { qContainer.addEventListener('click', (event) => {
         if (myValue === "correct"){
             qResultContainer.textContent = "CORRECT";
             scoreCorrect();
-            setTimeout(() => { buildQuestion3(); }, 2000);
+            setTimeout(() => { buildQuestion3(); }, 500);
         }
         else{
             qResultContainer.textContent = "WRONG";
             scoreWrong();
-            setTimeout(() => {  buildQuestion3(); }, 2000);
+            setTimeout(() => {  buildQuestion3(); }, 500);
 
         }
       }
@@ -263,12 +263,12 @@ function getAnswer3() { qContainer.addEventListener('click', (event) => {
         if (myValue === "correct"){
             qResultContainer.textContent = "CORRECT";
             scoreCorrect();
-            setTimeout(() => { buildQuestion4(); }, 2000);
+            setTimeout(() => { buildQuestion4(); }, 500);
         }
         else{
             qResultContainer.textContent = "WRONG";
             scoreWrong();
-            setTimeout(() => {  buildQuestion4(); }, 2000);
+            setTimeout(() => {  buildQuestion4(); }, 500);
 
         }
       }
@@ -293,11 +293,11 @@ function getAnswer4() { qContainer.addEventListener('click', (event) => {
             qResultContainer.textContent = "CORRECT";
             qTimeContainer.classList.add("hide");
             scoreCorrect();
-            setTimeout(() => {  captureUser(); }, 2000);
+            setTimeout(() => {  captureUser(); }, 500);
         }
         else{
             scoreWrong();
-            setTimeout(() => {  captureUser(); }, 2000);
+            setTimeout(() => {  captureUser(); }, 500);
         }
       }
   })
