@@ -363,6 +363,6 @@ document.getElementById("qHighScore").addEventListener("click", function qHighSc
         nameContainer.textContent = localStorage.getItem("user-name");
         yourScore.textContent = localStorage.getItem("user-score");
      } else {
-        alert("There are no scores, please take the quiz to be the first!");
+        alert("There are no scores yet, please take the quiz to be the first!");
      }
 });
