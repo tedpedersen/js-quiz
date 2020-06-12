@@ -61,7 +61,7 @@ questionObj = {
         }
       },
       "question3": { 
-        question: "String values must be enlosed within ......... when being assigned to variables.",
+        question: "String values must be enclosed within ......... when being assigned to variables.",
         answers: {
           a: "commas",
           b: "curly brackets",
