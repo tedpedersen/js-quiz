@@ -296,7 +296,6 @@ function getAnswer4() { qContainer.addEventListener('click', (event) => {
         }
         else{
             scoreWrong();
-            captureUser();
             setTimeout(() => {  captureUser(); }, 2000);
         }
       }
@@ -350,12 +349,3 @@ document.getElementById("qRetake").addEventListener("click", function reTakeit()
 document.getElementById("qHighScore").addEventListener("click", function qHighScoreLink(){
     alert("There are no scores, please take the quiz to create one.");
 });
-
-
-
-
-
-
-
-
-
