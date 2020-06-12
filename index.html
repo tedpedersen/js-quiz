@@ -55,10 +55,20 @@
             <form class="form">
                 <div class="form-group">
                   <label for="username" class="sr-only">Please enter initails:</label>
-                  <input type="password" class="form-control" id="username" placeholder="Enter Your Initails">
+                  <input type="input" class="form-control" id="username" placeholder="Enter Your Initails">
                 </div>
-                <button type="submit" class="btn btn-primary mb-2">Sumbit</button>
+                <button type="submit" class="btn btn-primary mb-2" id="nameBut">Sumbit</button>
               </form>
+            </div>
+        
+        </section>
+        <!-- scoreboard -->
+        <section class="row hidden" id="hiScoreContainer">
+            <div class="col-sm text-center">
+                <h1>High Scores</h1>
+                <h5><span id="nameContainer"></span> <span id="yourScore"></span></h5>
+                <hr />
+                <a class="btn btn-primary" id="qRetake">Retake Quiz</a> 
             </div>
         </section>
     </main>

@@ -315,7 +315,7 @@ function scoreCorrect() {
     scoreContainer.textContent = userScore;
 }
 function scoreWrong() {
-    timeleft = timeleft - 10;
+    timeleft - 10;
     console.log(userScore);
     scoreContainer.textContent = userScore;
 }
@@ -327,11 +327,27 @@ function captureUser(){
     quizQustionsContainer.classList.add("hide");
     //show score and form
     formContainer.classList.remove("hidden");
-
 }
 
-  
+document.getElementById("nameBut").addEventListener("click", function final(){
+    //stop form submittion
+    event.preventDefault();
+    
+    var name = document.getElementById("username").value;
 
+    if (name == 0){
+        alert("please enter a name!")
+        
+    }else{
+    //hide the form 
+    formContainer.classList.add("hide");
+    hiScoreContainer.classList.remove("hidden");
+    var nameContainer = document.getElementById("nameContainer");
+    var yourScore = document.getElementById("yourScore");
+    nameContainer.textContent = name;
+    yourScore.textContent = userScore;
+    }
+});
 
 
 
