@@ -8,6 +8,7 @@ var qResultContainer = document.getElementById("qResult");
 var qContainer = document.getElementById("qContainer");
 var formContainer = document.getElementById("formContainer");
 var scoreContainer = document.getElementById("scoreContainer");
+var retakeBut = document.getElementById("qRetake");
 var timeleft = 100;
 var quizFinished = 0;
 //start the quiz 
@@ -333,19 +334,35 @@ document.getElementById("nameBut").addEventListener("click", function final(){
     }else{
     //hide the form 
     formContainer.classList.add("hide");
+    //button text
+    retakeBut.textContent = "Retake Quiz"; 
     //todo this should be a loop, not hardcoded
     hiScoreContainer.classList.remove("hidden");
     var nameContainer = document.getElementById("nameContainer");
     var yourScore = document.getElementById("yourScore");
     nameContainer.textContent = name;
     yourScore.textContent = userScore;
+    //save final score to local storage
+    localStorage.setItem('user-name', name);
+    localStorage.setItem('user-score', userScore);
     }
 });
 //retake the quiz. todo: save hi score in local storage
 document.getElementById("qRetake").addEventListener("click", function reTakeit(){
     window.location.reload();
 });
-//todo: need conditional and check if hi score in local storage
+//if local storage, show the 
 document.getElementById("qHighScore").addEventListener("click", function qHighScoreLink(){
-    alert("There are no scores, please take the quiz to create one.");
+    if("user-name" in localStorage){
+        retakeBut.textContent = "Go Back"; 
+        hiScoreContainer.classList.remove("hidden");
+        qIntro.classList.add("hide");
+        formContainer.classList.add("hide");
+        var nameContainer = document.getElementById("nameContainer");
+        var yourScore = document.getElementById("yourScore");
+        nameContainer.textContent = localStorage.getItem("user-name");
+        yourScore.textContent = localStorage.getItem("user-score");
+     } else {
+        alert("There are no scores, please take the quiz to be the first!");
+     }
 });
