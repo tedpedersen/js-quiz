@@ -37,8 +37,12 @@ h1{
 h4{
     margin-top: 2%;
 }
-.avoid-clicks {
-    pointer-events: none;
+p{
+    font-size: 20px;
+    margin-bottom: .3rem;
+}
+#qStart{
+    margin-top: 20px;
 }
 .form-control{
     max-width: 50%;
