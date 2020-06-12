@@ -27,7 +27,7 @@ var quizTimer = setInterval(function(){
     window.location.reload();
   } else if(quizFinished == 1){
     clearInterval(quizTimer);
-    alert("done");
+    // alert("done");
   }
    else {
     document.getElementById("qTime").innerHTML = timeleft + " seconds remaining";
@@ -35,9 +35,6 @@ var quizTimer = setInterval(function(){
   timeleft -= 1;
 }, 1000);
 });
-
-
-
 
 //set up users score
 var userScore = 0;
@@ -195,18 +192,18 @@ function buildQuestion1(){
 function getAnswer1() { qContainer.addEventListener('click', (event) => {
     if (event.target.matches(".answer-button")) {
         var myValue = event.target.getAttribute("value");
-        console.log(myValue);
+        // console.log(myValue);
         //check if answer is correct
         if (myValue === "correct"){
             qResultContainer.textContent = "CORRECT";
             //give them points
             userScore = userScore + 25;
-            console.log(userScore);
+            // console.log(userScore);
             setTimeout(() => { buildQuestion2(); }, 2000);
         }
         else{
             qResultContainer.textContent = "WRONG";
-            console.log(userScore);
+            // console.log(userScore);
             //reduce timer if wrong
             timeleft = timeleft - 10;
             //wait 2 secs until next questions
@@ -234,7 +231,6 @@ function buildQuestion2(){
 function getAnswer2() { qContainer.addEventListener('click', (event) => {
     if (event.target.matches(".answer-button")) {
         var myValue = event.target.getAttribute("value");
-        console.log(myValue);
         if (myValue === "correct"){
             qResultContainer.textContent = "CORRECT";
             scoreCorrect();
@@ -263,7 +259,6 @@ function buildQuestion3(){
 function getAnswer3() { qContainer.addEventListener('click', (event) => {
     if (event.target.matches(".answer-button")) {
         var myValue = event.target.getAttribute("value");
-        console.log(myValue);
         if (myValue === "correct"){
             qResultContainer.textContent = "CORRECT";
             scoreCorrect();
@@ -293,7 +288,6 @@ function buildQuestion4(){
 function getAnswer4() { qContainer.addEventListener('click', (event) => {
     if (event.target.matches(".answer-button")) {
         var myValue = event.target.getAttribute("value");
-        console.log(myValue);
         if (myValue === "correct"){
             qResultContainer.textContent = "CORRECT";
             qTimeContainer.classList.add("hide");
@@ -311,12 +305,10 @@ function getAnswer4() { qContainer.addEventListener('click', (event) => {
 //logic for the scoring
 function scoreCorrect() {
     userScore + 25;
-    console.log(userScore);
     scoreContainer.textContent = userScore;
 }
 function scoreWrong() {
     timeleft - 10;
-    console.log(userScore);
     scoreContainer.textContent = userScore;
 }
 
@@ -335,18 +327,28 @@ document.getElementById("nameBut").addEventListener("click", function final(){
     
     var name = document.getElementById("username").value;
 
+    //validate
     if (name == 0){
-        alert("please enter a name!")
+        alert("Please enter your initails!")
         
     }else{
     //hide the form 
     formContainer.classList.add("hide");
+    //todo this should be a loop, not hardcoded
     hiScoreContainer.classList.remove("hidden");
     var nameContainer = document.getElementById("nameContainer");
     var yourScore = document.getElementById("yourScore");
     nameContainer.textContent = name;
     yourScore.textContent = userScore;
     }
+});
+//retake the quiz. todo: save hi score in local storage
+document.getElementById("qRetake").addEventListener("click", function reTakeit(){
+    window.location.reload();
+});
+//todo: need conditional and check if hi score in local storage
+document.getElementById("qHighScore").addEventListener("click", function qHighScoreLink(){
+    alert("There are no scores, please take the quiz to create one.");
 });
 
 

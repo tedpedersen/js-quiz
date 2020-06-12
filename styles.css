@@ -47,3 +47,18 @@ h4{
 .hidden{
     visibility: hidden;
 }
+ol li{
+    border-bottom: #fff solid 1px;
+}
+ol{
+    max-width: 400px;
+    text-align: left;
+    margin: 40px auto;
+}
+#nameContainer{
+    margin-right: 30px;
+}
+#nameContainer,
+#yourScore{
+    font-size: 25px;
+}
