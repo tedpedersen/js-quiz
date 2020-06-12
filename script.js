@@ -9,6 +9,7 @@ var qContainer = document.getElementById("qContainer");
 var formContainer = document.getElementById("formContainer");
 var scoreContainer = document.getElementById("scoreContainer");
 var timeleft = 100;
+var quizFinished = 0;
 //start the quiz 
 document.getElementById("qStart").addEventListener("click", function startQuiz(){
     //hide the intro
@@ -24,12 +25,19 @@ var quizTimer = setInterval(function(){
     document.getElementById("qTime").innerHTML = "Finished";
     alert("You ran out of time! Please try again.");
     window.location.reload();
-  } else {
+  } else if(quizFinished == 1){
+    clearInterval(quizTimer);
+    alert("done");
+  }
+   else {
     document.getElementById("qTime").innerHTML = timeleft + " seconds remaining";
   }
   timeleft -= 1;
 }, 1000);
 });
+
+
+
 
 //set up users score
 var userScore = 0;
@@ -194,8 +202,6 @@ function getAnswer1() { qContainer.addEventListener('click', (event) => {
             //give them points
             userScore = userScore + 25;
             console.log(userScore);
-
-           
             setTimeout(() => { buildQuestion2(); }, 2000);
         }
         else{
@@ -236,7 +242,6 @@ function getAnswer2() { qContainer.addEventListener('click', (event) => {
         }
         else{
             qResultContainer.textContent = "WRONG";
-            timeleft = timeleft - 10;
             scoreWrong();
             setTimeout(() => {  buildQuestion3(); }, 2000);
 
@@ -266,7 +271,6 @@ function getAnswer3() { qContainer.addEventListener('click', (event) => {
         }
         else{
             qResultContainer.textContent = "WRONG";
-            timeleft = timeleft - 10;
             scoreWrong();
             setTimeout(() => {  buildQuestion4(); }, 2000);
 
@@ -297,7 +301,6 @@ function getAnswer4() { qContainer.addEventListener('click', (event) => {
             setTimeout(() => {  captureUser(); }, 2000);
         }
         else{
-            timeleft = timeleft - 10;
             scoreWrong();
             captureUser();
             setTimeout(() => {  captureUser(); }, 2000);
@@ -312,14 +315,16 @@ function scoreCorrect() {
     scoreContainer.textContent = userScore;
 }
 function scoreWrong() {
+    timeleft = timeleft - 10;
     console.log(userScore);
     scoreContainer.textContent = userScore;
 }
 
 function captureUser(){
+    quizFinished = 1;
+    clearQuestion();
     qTimeContainer.classList.add("hide");
     quizQustionsContainer.classList.add("hide");
-    clearQuestion();
     //show score and form
     formContainer.classList.remove("hidden");
 
